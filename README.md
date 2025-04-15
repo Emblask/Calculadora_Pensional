@@ -1,63 +1,89 @@
-# Calculadora de Pensiones
+## Calculadora de Pensiones 📈
 
-Este proyecto permite calcular la pensión con base en los salarios de los últimos 10 años, la edad, las semanas cotizadas y el número de hijos. Además, maneja excepciones personalizadas para validar las condiciones de edad y semanas cotizadas.
+Una herramienta para calcular pensiones basada en historial salarial, datos demográficos y cotizaciones. Desarrollada en Python con manejo de excepciones y pruebas unitarias.
+Python 3.10+
+Licencia
 
-## Estructura del proyecto
+Características principales ✨
 
-```
-código_limpio/
-│
+- Cálculo pensional con base en 10 años de historial salarial
+
+- Validación de requisitos de edad y semanas cotizadas
+
+- Manejo de excepciones personalizadas
+
+- Interfaz gráfica y de consola
+
+- Pruebas unitarias integradas
+
+## Estructura del proyecto 🗂️
+```bash
+Calculadora_Pensional/
 ├── README.md
-│
 ├── src/
 │   ├── controller/          
 │   ├── model/
-│   │   └── pylogic.py      
+│   │   └── pylogic.py      # Lógica de cálculo principal
 │   └── view/
-│       ├── console.py       
-│       └── kivyApp.py      
-│
+│       ├── console.py       # Interfaz de línea de comandos
+│       └── interfaz.py      # Interfaz gráfica (Kivy)
 └── test/
-    └── test_1.py           
+    └── test_1.py           # Pruebas unitarias
 ```
-
-## Requisitos previos
+## Requisitos previos ⚙️
 
 - Python 3.10 o superior
-- Tener instalado `venv` (entorno virtual de Python recomendado)
-- Instalar las dependencias necesarias (si las hay)
-
-## Instalación
+- Gestor de paquetes pip
+- Entorno virtual recomendado (venv)
+- Dependencias:
+  ```
+  pip install kivy
+  ```
+## Instalación y configuración 🔧
 
 1. Clonar este repositorio:
    ```bash
    git clone https://github.com/David2421b/Calculadora_Pensional.git
+   cd Calculadora_Pensional
    ```
 2. Crear y activar un entorno virtual:
    ```bash
-   python -m venv venv
-   source venv/bin/activate  # En Linux/Mac
-   venv\Scripts\activate  # En Windows
+      # Windows
+    python -m venv venv
+    venv\Scripts\activate
+    # Linux/Mac
+    python3 -m venv venv
+    source venv/bin/activate
    ```
+3. Instalar dependencias
+   ```
+   pip install -r requirements.txt  # Si existe el archivo
+   pip install kivy                # Instalación directa
+   ```
+   
+## Modos de ejecución 🚀
 
-## Ejecución del programa
-
-Para ejecutar la calculadora de pensiones, usa el siguiente comando:
+Interfaz de consola
 
 ```bash
 src/view/console.py
 ```
 
-El programa solicitará los siguientes datos:
+## Datos requeridos:
 
-- Género (1 para Masculino, 2 para Femenino)
-- Edad
+- Género (1: Masculino, 2: Femenino)
+- Edad actual
 - Semanas cotizadas
 - Número de hijos
-- Salarios de los últimos 10 años
+- Salarios últimos 10 años (valores separados por comas)
 
 Si los datos ingresados no cumplen con los requisitos mínimos para la pensión, se generará una excepción con el mensaje correspondiente.
 
+## Interfaz gráfica
+```
+src/view/interfaz.py
+
+```
 ## Ejecutar pruebas
 
 El proyecto incluye pruebas unitarias para validar la lógica de cálculo de la pensión. Para ejecutar las pruebas, usa el siguiente comando:
@@ -68,52 +94,44 @@ python -m unittest discover -s tests
 
 Esto ejecutará todas las pruebas ubicadas en la carpeta `tests`.
 
-## Consola interactiva
+## Desarrollo y contribución 💻
+Consola interactiva
+Para experimentar con la lógica directamente:
+```
+>>> from src.model import pylogic
+>>> pylogic.pension_total([2000000, 2500000, 2700000, 3000000], "Masculino", 63, 1400, 2)
+```
 
-Si deseas probar funciones específicas en la consola de Python, sigue estos pasos:
+Estructura del cálculo
+```
+def calcular_pension(salarios, genero, edad, semanas, hijos):
+    # 1. Validar requisitos mínimos
+    # 2. Calcular promedio salarial
+    # 3. Aplicar factores de ajuste
+    # 4. Retornar valor pensional
+```
+## Manejo de excepciones 🛡️
 
-1. Abre la terminal y activa el entorno virtual (si no está activado).
+El sistema incluye validaciones específicas para garantizar datos correctos:
 
-2. Ingresa al modo interactivo de Python:
-   ```bash
-   python
-   ```
-3. Importa el módulo `pylogic`:
-   ```python
-   from src.model import pylogic
-   ```
-4. Ejecuta pruebas personalizadas, por ejemplo:
-   ```python
-   print(pylogic.pension_total([2000000, 2500000, 2700000, 3000000], "Masculino", 63, 1400, 2))
-   ```
 
-## Manejo de errores
+Excepción -> Condición de error
+NegativeNum	 -> Salarios negativos detectados
+InvalidAgeError	 -> Edad inferior al mínimo requerido
+InvalidWeeksError	-> Semanas cotizadas insuficientes
+InvalidDatesError  -> Combinación edad/semanas no válida
 
-El programa maneja los siguientes errores:
 
-- `NegativeNum`: Se lanza cuando se ingresa un salario negativo.
-- `InvalidAgeError`: Se lanza si la edad es menor a la requerida.
-- `InvalidWeeksError`: Se lanza si las semanas cotizadas son menores a las requeridas.
-- `InvalidDatesError`: Se lanza si no se cumplen los requisitos de edad y semanas cotizadas.
+## Autores 👥
 
----
+- Simón Correa Bravo 
+- David Hernández Mejía 
+- Miguel Ángel Guarnizo 
+- Tomás Mercado
 
-## Uso
+## ¿Problemas o sugerencias?
 
-   1. Para ejecutar las pruebas unitarias, ejecute el siguiente comando desde la raiz:
-      ```bash
-      py test/test_1.py
-      ```
-   
-   2. Para ejecutar el programa, corra el siguiente comando desde la raiz:
-      ```bash
-      py src/view/console.py
-      ```
-
----
-**Autores: Simon Correa Bravo, David Hernández Mejía**\
-**Repositorio:** [GitHub](https://github.com/David2421b/Calculadora_Pensional.git)
-
+- ✉️ Abre un issue en el repositorio.
 
 ## Entrevista  
 📺 [Ver en YouTube](https://youtu.be/5jBNKtJzQe4?si=5xQrhLlG16mk0w0V)  
