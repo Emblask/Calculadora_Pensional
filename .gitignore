@@ -1,5 +1,8 @@
 .venv
+venv-buildozer
 .vscode
 build
 dist
 interfaz.spec
+buildozer.spec
+__pycache__
