@@ -1,9 +1,4 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install -y python3-pip git zip unzip openjdk-17-jdk python3-dev build-essential libffi-dev libssl-dev
 
-<<<<<<< HEAD
 GitLens: Open Git Graph View
-=======
-
-
->>>>>>> 83dd4f1d97f868932bbb73723f8f7fcf9b764bd4
