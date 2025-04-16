@@ -1,4 +1,2 @@
-sudo apt update && sudo apt upgrade -y
-sudo apt install -y python3-pip git zip unzip openjdk-17-jdk python3-dev build-essential libffi-dev libssl-dev
-
-GitLens: Open Git Graph View
+pip3 install --upgrade pip setuptools cython
+pip3 install --user buildozer
