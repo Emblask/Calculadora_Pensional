@@ -1,6 +1,7 @@
 .venv
 .vscode
 .buildozer
+.idea
 venv_buildozer
 build
 bin
