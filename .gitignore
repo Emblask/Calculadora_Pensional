@@ -5,6 +5,7 @@
 venv_buildozer
 build
 bin
+SecretConfig.py
 dist
 interfaz.spec
 buildozer.spec
