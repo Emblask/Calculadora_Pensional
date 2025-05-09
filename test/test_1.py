@@ -1,7 +1,7 @@
 import sys
 sys.path.append("src")
 import unittest
-from model import pylogic 
+from model import pylogic
 
 
 class Pension_Total_Test(unittest.TestCase):
@@ -141,7 +141,6 @@ class Pension_Total_Test(unittest.TestCase):
         with self.assertRaises(pylogic.InvalidDatesError):
             pylogic.pension_total(lista, genero, edad, semanas, numero_hijos)
 
-       
 
 class Calculadora_ibl_Test(unittest.TestCase):
     
