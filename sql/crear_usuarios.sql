@@ -1,4 +1,4 @@
-create table if not exist usuarios (
+create table if not exists usuarios (
     cedula varchar(15) primary key not null,
     nombre varchar(15) not null,
     apellido varchar(15) not null,

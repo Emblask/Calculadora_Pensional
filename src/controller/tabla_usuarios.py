@@ -9,10 +9,27 @@ import SecretConfig
 class TablaUsuarios:
     def crear_tabla():
         cursor = TablaUsuarios.obtener_cursos()
+
+        with open("sql/crear_usuarios.sql", "r") as archivo:
+            consulta = archivo.read()
         
+        cursor.execute(consulta)
+        cursor.connection.commit()
+
+    def borrar_usuario():
+        cursor = TablaUsuarios.obtener_cursos()
+
+        with open("sql/borrar_usuarios.sql", "r") as archivo:
+            consulta = archivo.read()
+
+        cursor.execute(consulta)
+        cursor.connection.commit()        
 
     def obtener_cursos():
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)
         cursor = conection.cursor()
         return cursor
+
+if __name__ == "__main__":
+    TablaUsuarios.borrar_usuario()
 
