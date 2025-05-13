@@ -18,7 +18,8 @@ class TestTarjeta(unittest.TestCase):
                             nombre = "David",
                             apellido = "Hernandez",
                             edad = 71,
-                            genero = "Masculino")
+                            genero = "Masculino",
+                            numero_hijos = 1)
         
         UsuariosController.insertar(usuario)
         usuario_buscado = UsuariosController.buscar_usuario(usuario.cedula)
@@ -29,13 +30,15 @@ class TestTarjeta(unittest.TestCase):
                             nombre = "Isabel",
                             apellido = "Trespalacios",
                             edad = 68,
-                            genero = "Femenino")
+                            genero = "Femenino",
+                            numero_hijos = 2)
         
         usuario_2 =  Usuario(  cedula = 8401133,
                             nombre = "Rafael",
                             apellido = "Hernandez",
                             edad = 59,
-                            genero = "Masculino")
+                            genero = "Masculino",
+                            numero_hijos = 0)
         
         UsuariosController.insertar(usuario)
         UsuariosController.insertar(usuario_2)
@@ -47,7 +50,8 @@ class TestTarjeta(unittest.TestCase):
                             nombre = "Elza",
                             apellido = "Pote",
                             edad = 71,
-                            genero = "Femenino")
+                            genero = "Femenino",
+                            numero_hijos = 2)
         
         UsuariosController.insertar(usuario)
         UsuariosController.eliminar(usuario.cedula)
