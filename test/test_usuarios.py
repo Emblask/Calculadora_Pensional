@@ -21,9 +21,7 @@ class TestTarjeta(unittest.TestCase):
                             genero = "Masculino")
         
         UsuariosController.insertar(usuario)
-
         usuario_buscado = UsuariosController.buscar_usuario(usuario.cedula)
-
         self.assertTrue(usuario_buscado.EsIgual(usuario))
 
 
