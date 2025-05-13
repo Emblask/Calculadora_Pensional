@@ -24,4 +24,8 @@ class TestTarjeta(unittest.TestCase):
 
         usuario_buscado = UsuariosController.buscar_usuario(usuario.cedula)
 
-        self.assertTrue(usuario_buscado.Es)
+        self.assertTrue(usuario_buscado.EsIgual(usuario))
+
+
+if __name__ == "__main__":
+    unittest.main()
