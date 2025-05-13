@@ -12,7 +12,6 @@ class UsuariosController:
 
         with open("sql/crear_usuarios.sql", "r") as archivo:
             consulta = archivo.read()
-        
         cursor.execute(consulta)
         cursor.connection.commit()
 
