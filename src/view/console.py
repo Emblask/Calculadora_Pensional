@@ -41,6 +41,6 @@ try:
     print(pylogic.pension_total(lista_salarios, genero, edad, semanas, numero_hijos))
 
 except Exception as e:
-    print(f"\n❌ Error: {e}") 
+    print(f"\n❌ Error: {e}")
 
 
