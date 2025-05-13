@@ -1,6 +1,11 @@
 import sys
+
 sys.path.append("src")
+sys.path.append(".")
+
 from model import pylogic
+from model.usuario import Usuario
+from controller.usuarios_controller import UsuariosController
 
 #Metodos
 def asignar_genero(valor):
@@ -21,28 +26,44 @@ edad = 0
 semanas = 0
 maximo_salarios = 11
 
+#Creacion de la tabla Usuarios
+UsuariosController.crear_tabla()
+
 # Comunicación con el usuario
-print("\n          Bienvenidos a la calculadora \n--------------------------------------------------\n\nPor favor ingresa tu salario de los últimos 10 años\n")
+print("\n          Bienvenidos a la calculadora \n--------------------------------------------------\n\n")
 
-try:
-    sleccionar_genero = int(input("Por favor selecciona tu género: \n\n 1. Masculino \n 2. Femenino \n\nSelección: "))
-    genero = asignar_genero(sleccionar_genero)
-    nombre = input("Ingresa tu nombre: ")
-    apellido = input("Ingresa tu apellido: ")
-    cedula = input("Ingresa tu cedula: ")
-    edad = int(input("Ingresa tu edad actual: "))
-    semanas = int(input("Ingrese el total de semanas cotizadas: "))
-    numero_hijos = int(input("¿Cuántos hijos tienes?: "))
+eleccion_tipo_usuario = int(input("Eres un Usuario: \n 1. Nuevo \n 2. Registrado \n\nSeleccion: "))
 
-    lista_salarios = []
-    for i in range(1, maximo_salarios):
-        salario = int(input(f"Ingrese su salario {i}: "))
-        lista_salarios.append(salario)
+if eleccion_tipo_usuario == 1:
+    try:
+        sleccionar_genero = int(input("Por favor selecciona tu género: \n\n 1. Masculino \n 2. Femenino \n\nSelección: "))
+        genero = asignar_genero(sleccionar_genero)
+        nombre = input("Ingresa tu nombre: ")
+        apellido = input("Ingresa tu apellido: ")
+        cedula = input("Ingresa tu cedula: ")
+        edad = int(input("Ingresa tu edad actual: "))
+        semanas = int(input("Ingrese el total de semanas cotizadas: "))
+        numero_hijos = int(input("¿Cuántos hijos tienes?: "))
 
-    # Comunicación con la lógica
-    print(pylogic.pension_total(lista_salarios, genero, edad, semanas, numero_hijos))
+        usuario = Usuario(cedula, nombre, apellido, edad, genero, numero_hijos)
 
-except Exception as e:
-    print(f"\n❌ Error: {e}")
+        UsuariosController.insertar(usuario)
 
+        print("\n   Por favor ingresa tu salario de los últimos 10 años\n")
 
+        lista_salarios = []
+        for i in range(1, maximo_salarios):
+            salario = int(input(f"Ingrese su salario {i}: "))
+            lista_salarios.append(salario)
+
+    except Exception as e:
+        print(f"\n❌ Error: {e}")
+
+else:
+    cedula = int(input("Ingresa tu cedula registrada: "))
+    usuario = UsuariosController.buscar_usuario(cedula)
+    print(f"Hola de nuevo {usuario.nombre}")
+
+# Comunicación con la lógica
+pension_total = pylogic.pension_total(lista_salarios, usuario.genero, usuario.edad, semanas, usuario.numero_hijos)
+print(f"{usuario.nombre} tu pension es: {pension_total}")
