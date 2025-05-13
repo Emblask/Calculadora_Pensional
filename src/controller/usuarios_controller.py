@@ -10,6 +10,7 @@ from model.usuario import Usuario
 class UsuariosController:
     def crear_tabla():
         cursor = UsuariosController.obtener_cursos()
+        
         with open("sql/crear_usuarios.sql", "r") as archivo:
             consulta = archivo.read()
         cursor.execute(consulta)
@@ -17,6 +18,7 @@ class UsuariosController:
 
     def borrar_tabla():
         cursor = UsuariosController.obtener_cursos()
+
         with open("sql/borrar_usuarios.sql", "r") as archivo:
             consulta = archivo.read()
         cursor.execute(consulta)
@@ -24,10 +26,19 @@ class UsuariosController:
     
     def insertar(usuario: Usuario):
         cursor = UsuariosController.obtener_cursos()
+
         consulta = f"insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}', '{usuario.edad}')"
         cursor.execute(consulta)
         cursor.connection.commit()
     
+    def buscar_usuario(cedula) -> Usuario:
+        cursor = UsuariosController.obtener_cursos()
+
+        consulta = f"select * from usuarios where cedelua = '{cedula}'"
+        cursor.execute(consulta)
+        fila = cursor.fetchone()
+        resultado = Usuario(cedula = fila[0], nombre = fila[1], apellido = fila[2], edad = fila[3], genero = [4])
+        return resultado
 
     def obtener_cursos():
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)

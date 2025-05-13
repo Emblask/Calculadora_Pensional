@@ -5,3 +5,6 @@ class Usuario:
         self.apellido = apellido
         self.edad = edad
         self.genero = genero
+
+    def EsIgual(self, otro):
+        

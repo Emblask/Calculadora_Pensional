@@ -19,3 +19,9 @@ class TestTarjeta(unittest.TestCase):
                             apellido = "Hernandez",
                             edad = 71,
                             genero = "Masculino")
+        
+        UsuariosController.insertar(usuario)
+
+        usuario_buscado = UsuariosController.buscar_usuario(usuario.cedula)
+
+        self.assertTrue(usuario_buscado.Es)
