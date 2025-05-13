@@ -18,7 +18,7 @@ class Database:
                             Edad SMALLINT NOT NULL,
                             Semanas_Cotizadas INTEGER NOT NULL
                             )""")
-        self.conexion.commit() 
+        self.conexion.commit()
 
 
 if __name__ == "__main__":
