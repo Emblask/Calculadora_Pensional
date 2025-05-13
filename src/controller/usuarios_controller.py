@@ -27,7 +27,7 @@ class UsuariosController:
     def insertar(usuario: Usuario):
         cursor = UsuariosController.obtener_cursos()
 
-        consulta = f"insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}', '{usuario.genero}')"
+        consulta = f"insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}', '{usuario.genero}', '{usuario.numero_hijos}')"
         cursor.execute(consulta)
         cursor.connection.commit()
     
@@ -48,7 +48,7 @@ class UsuariosController:
         if fila is None:
             return None
         
-        resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4])
+        resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4], numero_hijos = fila[5])
         return resultado
 
     def actualizar_datos():
