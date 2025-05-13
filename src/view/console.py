@@ -27,7 +27,9 @@ print("\n          Bienvenidos a la calculadora \n------------------------------
 try:
     sleccionar_genero = int(input("Por favor selecciona tu género: \n\n 1. Masculino \n 2. Femenino \n\nSelección: "))
     genero = asignar_genero(sleccionar_genero)
-
+    nombre = input("Ingresa tu nombre: ")
+    apellido = input("Ingresa tu apellido: ")
+    cedula = input("Ingresa tu cedula: ")
     edad = int(input("Ingresa tu edad actual: "))
     semanas = int(input("Ingrese el total de semanas cotizadas: "))
     numero_hijos = int(input("¿Cuántos hijos tienes?: "))
