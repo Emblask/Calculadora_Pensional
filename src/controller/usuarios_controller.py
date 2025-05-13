@@ -31,6 +31,13 @@ class UsuariosController:
         cursor.execute(consulta)
         cursor.connection.commit()
     
+    def eliminar(cedula: int):
+        cursor = UsuariosController.obtener_cursos()
+
+        consulta = f"delete from usuarios where cedula = '{cedula}'"
+        cursor.execute(consulta)
+        cursor.connection.commit()
+    
     def buscar_usuario(cedula) -> Usuario:
         cursor = UsuariosController.obtener_cursos()
 
@@ -44,5 +51,4 @@ class UsuariosController:
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)
         cursor = conection.cursor()
         return cursor
-
 
