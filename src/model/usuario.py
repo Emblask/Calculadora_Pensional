@@ -7,9 +7,15 @@ class Usuario:
         self.genero = genero
 
     def EsIgual(self, otro):
-        assert(self.cedula == otro.cedula)
-        assert(self.nombre == otro.nombre)
-        assert(self.apellido == otro.apellido)
-        assert(self.edad == otro.edad)
-        assert(self.genero == otro.genero)
+
+        if self.cedula != otro.cedula:
+            return False
+        if self.nombre != otro.nombre:
+            return False
+        if self.apellido != otro.apellido:
+            return False
+        if self.edad != otro.edad:
+            return False
+        if self.genero != otro.genero:
+            return False
         return True
