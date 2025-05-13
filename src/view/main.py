@@ -23,10 +23,10 @@ except ImportError:
             return 25000.0
     pylogic = PyLogicMock()
 
-primary_color = [0.2, 0.6, 0.5, 1]  
-light_bg_color = [0.95, 0.95, 0.95, 1]  
-text_color = [0.2, 0.2, 0.2, 1]  
-visible_text_color = [0.1, 0.1, 0.1, 1]  
+primary_color = [0.2, 0.6, 0.5, 1]
+light_bg_color = [0.95, 0.95, 0.95, 1]
+text_color = [0.2, 0.2, 0.2, 1]
+visible_text_color = [0.1, 0.1, 0.1, 1]
 
 class BorderedLabel(Label):
     def __init__(self, **kwargs):
@@ -35,7 +35,7 @@ class BorderedLabel(Label):
         self.color = primary_color
         with self.canvas.before:
             Color(0.93, 0.93, 0.93, 1)
-            self.rect = Rectangle(pos=(0, 0), size=(0, 0))  
+            self.rect = Rectangle(pos=(0, 0), size=(0, 0))
         self.bind(pos=self._update_rect, size=self._update_rect)
         
     def _update_rect(self, instance, value):
@@ -93,12 +93,12 @@ class PensionApp(App):
         label_height = dp(40)
         input_height = dp(40)
         
-        form_grid.add_widget(Label(
-        ))
+        form_grid.add_widget(Label())
+
         self.edad_input = TextInput(
-            multiline=False, 
+            multiline=False,
             input_filter='int',
-            size_hint_y=None, 
+            size_hint_y=None,
             height=input_height,
             background_color=[0.95, 0.95, 0.95, 1],
             padding=[10, 10, 0, 0],
@@ -106,8 +106,8 @@ class PensionApp(App):
         )
         form_grid.add_widget(self.edad_input)
         
-        form_grid.add_widget(Label(
-        ))
+        form_grid.add_widget(Label())
+
         self.genero_spinner = Spinner(
             text='Seleccione su género',
             values=('Masculino', 'Femenino'),
@@ -117,12 +117,12 @@ class PensionApp(App):
         )
         form_grid.add_widget(self.genero_spinner)
         
-        form_grid.add_widget(Label(
-        ))
+        form_grid.add_widget(Label())
+
         self.semanas_input = TextInput(
-            multiline=False, 
+            multiline=False,
             input_filter='int',
-            size_hint_y=None, 
+            size_hint_y=None,
             height=input_height,
             background_color=[0.95, 0.95, 0.95, 1],
             padding=[10, 10, 0, 0],
@@ -130,12 +130,11 @@ class PensionApp(App):
         )
         form_grid.add_widget(self.semanas_input)
         
-        form_grid.add_widget(Label(
-        ))
+        form_grid.add_widget(Label())
         self.hijos_input = TextInput(
-            multiline=False, 
+            multiline=False,
             input_filter='int',
-            size_hint_y=None, 
+            size_hint_y=None,
             height=input_height,
             background_color=[0.95, 0.95, 0.95, 1],
             padding=[10, 10, 0, 0],
@@ -152,16 +151,16 @@ class PensionApp(App):
             halign='center'
         )
         form_grid.add_widget(salarios_title)
-        form_grid.add_widget(Label(size_hint_y=None, height=label_height))  
+        form_grid.add_widget(Label(size_hint_y=None, height=label_height))
         
         self.salarios_inputs = []
         for i in range(10):
             form_grid.add_widget(Label(
             ))
             salario_input = TextInput(
-                multiline=False, 
+                multiline=False,
                 input_filter='int',
-                size_hint_y=None, 
+                size_hint_y=None,
                 height=input_height,
                 background_color=[0.95, 0.95, 0.95, 1],
                 padding=[10, 10, 0, 0],
@@ -173,10 +172,10 @@ class PensionApp(App):
         scroll.add_widget(form_grid)
         left_panel.add_widget(scroll)
         
-        # Botón de cálculo 
+        # Botón de cálculo
         button_layout = AnchorLayout(anchor_x='center', size_hint_y=0.1)
         self.calcular_btn = StyledButton(
-            text="CALCULAR MI PENSIÓN", 
+            text="CALCULAR MI PENSIÓN",
             size_hint=(0.7, 1)
         )
         self.calcular_btn.bind(on_press=self.calcular_pension)
@@ -194,9 +193,9 @@ class PensionApp(App):
         instructions_box.bind(pos=self._update_rect_pos_size, size=self._update_rect_pos_size)
         
         instructions_title = Label(
-            text="INSTRUCCIONES", 
-            font_size='18sp', 
-            bold=True, 
+            text="INSTRUCCIONES",
+            font_size='18sp',
+            bold=True,
             color=[1,1,1,1],
             size_hint_y=0.3
         )
@@ -294,7 +293,7 @@ class PensionApp(App):
         
         # Botón para cerrar
         cerrar_btn = StyledButton(
-            text="Cerrar resultado", 
+            text="Cerrar resultado",
             size_hint=(0.5, 0.3)
         )
         button_box = AnchorLayout(anchor_x='center')
@@ -353,7 +352,7 @@ class PensionApp(App):
             # Mostrar resultado formateado
             resultado_formateado = "${:,.2f}".format(resultado)
             self.mostrar_popup(
-                "RESULTADO DE SU PENSIÓN", 
+                "RESULTADO DE SU PENSIÓN",
                 f"De acuerdo a los datos proporcionados,\nsu pensión mensual estimada sería de:\n\n{resultado_formateado}"
             )
         except ValueError:

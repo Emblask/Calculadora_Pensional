@@ -44,12 +44,15 @@ class UsuariosController:
         consulta = f"select * from usuarios where cedula = '{cedula}'"
         cursor.execute(consulta)
         fila = cursor.fetchone()
-        
+
         if fila is None:
             return None
         
         resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4])
         return resultado
+
+    def actualizar_datos():
+        ...
 
     def obtener_cursos():
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)
