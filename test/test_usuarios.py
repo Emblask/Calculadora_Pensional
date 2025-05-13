@@ -42,6 +42,16 @@ class TestTarjeta(unittest.TestCase):
         Usuario_buscado = UsuariosController.buscar_usuario(usuario_2.cedula)
         self.assertFalse(usuario.EsIgual(Usuario_buscado))
 
+    def test_eliminar_normal_1(self):
+        usuario =  Usuario(  cedula = 123456789,
+                            nombre = "Elza",
+                            apellido = "Pote",
+                            edad = 71,
+                            genero = "Femenino")
+        
+        UsuariosController.insertar(usuario)
+        UsuariosController.eliminar(usuario.cedula)
+        self.assertIsNone(UsuariosController.buscar_usuario(usuario.cedula))
 
 
 if __name__ == "__main__":
