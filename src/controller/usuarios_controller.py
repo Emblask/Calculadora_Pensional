@@ -44,6 +44,10 @@ class UsuariosController:
         consulta = f"select * from usuarios where cedula = '{cedula}'"
         cursor.execute(consulta)
         fila = cursor.fetchone()
+        
+        if fila is None:
+            return None
+        
         resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4])
         return resultado
 

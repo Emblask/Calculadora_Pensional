@@ -1,1 +1,2 @@
 falta implementar la DB a kivy o consola
+crear metodo eliminar y actualizar para los salarios

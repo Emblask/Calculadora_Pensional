@@ -13,7 +13,7 @@ class TestTarjeta(unittest.TestCase):
         UsuariosController.borrar_tabla()
         UsuariosController.crear_tabla()
 
-    def test_insert_normal_1(self):
+    def test_insertar_normal_1(self):
         usuario = Usuario(  cedula = 1022145818,
                             nombre = "David",
                             apellido = "Hernandez",
@@ -24,7 +24,7 @@ class TestTarjeta(unittest.TestCase):
         usuario_buscado = UsuariosController.buscar_usuario(usuario.cedula)
         self.assertTrue(usuario_buscado.EsIgual(usuario))
     
-    def test_insert_error_2(self):
+    def test_insertar_error_2(self):
         usuario =  Usuario( cedula = 43669647,
                             nombre = "Isabel",
                             apellido = "Trespalacios",
@@ -41,6 +41,17 @@ class TestTarjeta(unittest.TestCase):
         UsuariosController.insertar(usuario_2)
         Usuario_buscado = UsuariosController.buscar_usuario(usuario_2.cedula)
         self.assertFalse(usuario.EsIgual(Usuario_buscado))
+
+    def test_eliminar_normal_1(self):
+        usuario =  Usuario(  cedula = 123456789,
+                            nombre = "Elza",
+                            apellido = "Pote",
+                            edad = 71,
+                            genero = "Femenino")
+        
+        UsuariosController.insertar(usuario)
+        UsuariosController.eliminar(usuario.cedula)
+        self.assertIsNone(UsuariosController.buscar_usuario(usuario.cedula))
 
 
 if __name__ == "__main__":
