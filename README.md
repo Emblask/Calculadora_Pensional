@@ -2,7 +2,6 @@
 
 Una herramienta para calcular pensiones basada en historial salarial, datos demográficos y cotizaciones. Desarrollada en Python con manejo de excepciones y pruebas unitarias.
 Python 3.10+
-Licencia
 
 Características principales ✨
 
@@ -21,7 +20,7 @@ Características principales ✨
 Calculadora_Pensional/
 ├── README.md
 ├── src/
-│   ├── controller/          
+│   ├── controller/
 │   ├── model/
 │   │   └── pylogic.py      # Lógica de cálculo principal
 │   └── view/
@@ -39,6 +38,11 @@ Calculadora_Pensional/
   ```
   pip install kivy
   ```
+
+## Licencia 📄
+
+Este proyecto está bajo la Licencia MIT. Consulta el archivo [LICENSE](LICENSE) para más detalles.
+
 ## Instalación y configuración 🔧
 
 1. Clonar este repositorio:
@@ -89,7 +93,7 @@ src/view/interfaz.py
 El proyecto incluye pruebas unitarias para validar la lógica de cálculo de la pensión. Para ejecutar las pruebas, usa el siguiente comando:
 
 ```bash
-python -m unittest discover -s tests
+python -m unittest discover -s test
 ```
 
 Esto ejecutará todas las pruebas ubicadas en la carpeta `tests`.
