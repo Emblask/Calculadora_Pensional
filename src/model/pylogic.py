@@ -49,7 +49,7 @@ def pension_total(lista: list[int], genero: str, edad: int, semanas: int, numero
         raise InvalidWeeksError(cuenta_semanas, semanas)
     
 
-    pension = calculo_IBL(lista) / len(lista) * Porcentaje_pension
+    pension = round(calculo_IBL(lista) / len(lista) * Porcentaje_pension, 2)
 
     if (genero == "Masculino" and edad >= 62 and semanas >= 1300):
         if pension < salario_minimo:
