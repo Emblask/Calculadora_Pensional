@@ -28,5 +28,7 @@ class Controlar_Salarios:
         cursor.execute(consulta)
         cursor.connection.commit()
 
+    def insertar_datos_salarios():
+
 if __name__ == "__main__":
-    Controlar_Salarios.borrar_tabla_salarios()
+    Controlar_Salarios.crear_tabla_salarios()
