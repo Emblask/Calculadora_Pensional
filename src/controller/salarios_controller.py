@@ -29,6 +29,7 @@ class Controlar_Salarios:
         cursor.connection.commit()
 
     def insertar_datos_salarios():
+        ...
 
 if __name__ == "__main__":
     Controlar_Salarios.crear_tabla_salarios()
