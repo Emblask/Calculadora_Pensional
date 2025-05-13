@@ -27,17 +27,17 @@ class UsuariosController:
     def insertar(usuario: Usuario):
         cursor = UsuariosController.obtener_cursos()
 
-        consulta = f"insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}', '{usuario.edad}')"
+        consulta = f"insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}', '{usuario.genero}')"
         cursor.execute(consulta)
         cursor.connection.commit()
     
     def buscar_usuario(cedula) -> Usuario:
         cursor = UsuariosController.obtener_cursos()
 
-        consulta = f"select * from usuarios where cedelua = '{cedula}'"
+        consulta = f"select * from usuarios where cedula = '{cedula}'"
         cursor.execute(consulta)
         fila = cursor.fetchone()
-        resultado = Usuario(cedula = fila[0], nombre = fila[1], apellido = fila[2], edad = fila[3], genero = [4])
+        resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4])
         return resultado
 
     def obtener_cursos():
@@ -45,6 +45,4 @@ class UsuariosController:
         cursor = conection.cursor()
         return cursor
 
-if __name__ == "__main__":
-    UsuariosController.borrar_tabla()
 
