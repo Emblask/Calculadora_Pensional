@@ -6,11 +6,11 @@ sys.path.append(".")
 
 import SecretConfig
 
-class Controlar_usuarios:
+class Controlar_Salarios:
     
-    def crear_tabla():
-        cursor = Controlar_usuarios.obtener_cursor()
-        with open("sql/crear_usuarios.sql", "r") as archivo:
+    def crear_tabla_salarios():
+        cursor = Controlar_Salarios.obtener_cursor()
+        with open("sql/crear_salarios.sql", "r") as archivo:
             consulta = archivo.read()
         cursor.execute(consulta)
         cursor.connection.commit()
@@ -20,3 +20,13 @@ class Controlar_usuarios:
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)
         cursor = conection.cursor()
         return cursor
+    
+    def borrar_tabla_salarios():
+        cursor = Controlar_Salarios.obtener_cursor()
+        with open("sql/borrar_salarios.sql", "r") as archivo:
+            consulta = archivo.read()
+        cursor.execute(consulta)
+        cursor.connection.commit()
+
+if __name__ == "__main__":
+    Controlar_Salarios.borrar_tabla_salarios()
