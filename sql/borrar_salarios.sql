@@ -1,1 +1,1 @@
-drop table if exists salarios
+drop table if exists salarios cascade
