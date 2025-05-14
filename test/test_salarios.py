@@ -10,10 +10,11 @@ from controller.usuarios_controller import UsuariosController
 
 
 class TestSalarios(unittest.TestCase):
-
-    def setUpClass():
-        UsuariosController.borrar_tabla()
+    
+    @classmethod
+    def setUpClass(cls):
         SalariosController.borrar_tabla_salarios()
+        UsuariosController.borrar_tabla()
 
         UsuariosController.crear_tabla()
         SalariosController.crear_tabla_salarios()
