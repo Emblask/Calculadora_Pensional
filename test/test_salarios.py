@@ -10,14 +10,15 @@ from controller.usuarios_controller import UsuariosController
 
 
 class TestSalarios(unittest.TestCase):
-    def setUpClass():
+
+    def setUpClass(): 
         UsuariosController.borrar_tabla()
         UsuariosController.crear_tabla()
 
         SalariosController.borrar_tabla_salarios()
         SalariosController.crear_tabla_salarios()
 
-    def test_isertar_normal_1(self):
+    def test_insertar_normal_1(self):
         usuario = Usuario(  cedula = 987654321,
                             nombre = "Simon",
                             apellido = "Correa",
