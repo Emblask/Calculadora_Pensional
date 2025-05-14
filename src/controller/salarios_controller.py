@@ -14,7 +14,6 @@ class Controlar_Salarios:
             consulta = archivo.read()
         cursor.execute(consulta)
         cursor.connection.commit()
-
     
     def obtener_cursor():
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)

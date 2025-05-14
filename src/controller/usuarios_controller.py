@@ -16,6 +16,7 @@ class UsuariosController:
         cursor.execute(consulta)
         cursor.connection.commit()
 
+
     def borrar_tabla():
         cursor = UsuariosController.obtener_cursos()
 
