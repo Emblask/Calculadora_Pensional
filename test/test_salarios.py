@@ -11,11 +11,11 @@ from controller.usuarios_controller import UsuariosController
 
 class TestSalarios(unittest.TestCase):
 
-    def setUpClass(): 
+    def setUpClass():
         UsuariosController.borrar_tabla()
-        UsuariosController.crear_tabla()
-
         SalariosController.borrar_tabla_salarios()
+
+        UsuariosController.crear_tabla()
         SalariosController.crear_tabla_salarios()
 
     def test_insertar_normal_1(self):
@@ -67,8 +67,8 @@ class TestSalarios(unittest.TestCase):
         UsuariosController.insertar(usuario)
         SalariosController.insertar_datos_salarios(salarios)
 
-        UsuariosController.eliminar(usuario.cedula)
         SalariosController.eliminar(usuario.cedula)
+        UsuariosController.eliminar(usuario.cedula)
         self.assertIsNone(SalariosController.buscar_salarios(usuario.cedula))
 
 
