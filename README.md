@@ -147,7 +147,9 @@ Para que la base de datos permita conectarse a postgre y poder gestionar los dat
 
 (pip install psycopg2)
 
-Asegurese 
+Asegurese de tener una base de datos PostgreSQL y sus respectivos datos de acceso
+:los datos  de acceso de ven de la siguiente manera:
+
 
 
 ## ¿Problemas o sugerencias?
