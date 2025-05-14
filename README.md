@@ -150,6 +150,22 @@ Para que la base de datos permita conectarse a postgre y poder gestionar los dat
 Asegurese de tener una base de datos PostgreSQL y sus respectivos datos de acceso
 :los datos  de acceso de ven de la siguiente manera:
 
+PGHOST = 'PONGA EL HOST DE LA BD AQUI'
+PGDATABASE = 'PONGA EL NOMBRE DE LA BD AQUI'
+PGUSER = 'PONGA EL USUARIO AQUI'
+PGPASSWORD = 'PONGA LA CONTRASEÑA AQUI'
+PGPORT = 5432
+
+Este es un ejemplo de los datos para la conexion del sistema con la base de datos
+Para introducir los datos de conexion debe copiar el archivo SecretConfig-sample.py como SecretConfig.py y establezca en este archivo los datos de conexion a su base de datos.
+
+Recuerde no subir este archivo al repositorio, ya que este seran los datos de acceso privados a la base de datos.
+
+
+Antes de ejecutar la aplicaición por primera vez, debe correr las pruebas unitarias, para que se creen las tablas en la base de datos
+
+Despues de tener esto en cuenta ejecute el sistema y haga las pruebas correspondientes.
+
 
 
 ## ¿Problemas o sugerencias?
