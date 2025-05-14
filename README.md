@@ -133,6 +133,23 @@ InvalidDatesError  -> Combinación edad/semanas no válida
 - Miguel Ángel Guarnizo 
 - Tomás Mercado
 
+## Crear la base de datos
+⚙️ Requisitos
+-Python 3.8 o superior
+
+-PostgreSQL instalado y configurado
+
+-Librería psycopg2 (conector para PostgreSQL)
+
+📦Instalacion de dependencias:
+
+Para que la base de datos permita conectarse a postgre y poder gestionar los datos dentro de esta usamos:
+
+(pip install psycopg2)
+
+Asegurese 
+
+
 ## ¿Problemas o sugerencias?
 
 - ✉️ Abre un issue en el repositorio.
