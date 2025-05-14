@@ -1,1 +1,1 @@
-drop table if exists usuarios
+drop table if exists usuarios cascade
