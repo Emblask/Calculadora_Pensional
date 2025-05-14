@@ -26,7 +26,7 @@ class TestSalarios(unittest.TestCase):
                             genero = "Masculino",
                             numero_hijos = 3)
 
-        salarios = Salarios(cedula = 987654321,
+        salarios = Salarios(cedula = usuario.cedula,
                             salario_1 = 4000000,
                             salario_2 = 3100000,
                             salario_3 = 3200000,
