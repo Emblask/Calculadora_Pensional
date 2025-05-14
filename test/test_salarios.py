@@ -43,6 +43,33 @@ class TestSalarios(unittest.TestCase):
 
         salarios_buscados = SalariosController.buscar_salarios(usuario.cedula)
         self.assertTrue(salarios.EsIgual(salarios_buscados))
+    
+    def test_eliminar(self):
+        usuario = Usuario(  cedula = 135792468,
+                            nombre = "Armando",
+                            apellido = "Lalo quera",
+                            edad = 72,
+                            genero = "Masculino",
+                            numero_hijos = 0)
+
+        salarios = Salarios(cedula = usuario.cedula,
+                            salario_1 = 3200000,
+                            salario_2 = 3100000,
+                            salario_3 = 3200000,
+                            salario_4 = 5100000,
+                            salario_5 = 3400000,
+                            salario_6 = 3550000,
+                            salario_7 = 3600000,
+                            salario_8 = 3200000,
+                            salario_9 = 3800000,
+                            salario_10 = 3900000)
+        
+        UsuariosController.insertar(usuario)
+        SalariosController.insertar_datos_salarios(salarios)
+
+        UsuariosController.eliminar(usuario.cedula)
+        SalariosController.eliminar(usuario.cedula)
+        self.assertIsNone(SalariosController.buscar_salarios(usuario.cedula))
 
 
 if __name__ == "__main__":
