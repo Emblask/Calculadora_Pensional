@@ -11,5 +11,5 @@ create table if not exists salarios(
     salario_ano8 NUMERIC(12,2) not null,
     salario_ano9 NUMERIC(12,2) not null,
     salario_ano10 NUMERIC(12,2) not null,
-    FOREIGN KEY (cedula) REFERENCES usuarios(cedula)
+    FOREIGN KEY (cedula) REFERENCES usuarios(cedula) ON DELETE CASCADE
 );
