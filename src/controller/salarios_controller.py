@@ -37,6 +37,13 @@ class SalariosController:
                                                 '{salarios.salario_9}', '{salarios.salario_10}')"""
         cursor.execute(consulta)
         cursor.connection.commit()
+    
+    def eliminar(cedula: int):
+        cursor = SalariosController.obtener_cursor()
+
+        consulta = f"delete from salarios where cedula = '{cedula}'"
+        cursor.execute(consulta)
+        cursor.connection.commit()
 
     def buscar_salarios(cedula) -> Salarios:
         cursor = SalariosController.obtener_cursor()
