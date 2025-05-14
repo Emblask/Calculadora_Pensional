@@ -42,4 +42,7 @@ class TestSalarios(unittest.TestCase):
 
         salarios_buscados = SalariosController.buscar_salarios(usuario.cedula)
         self.assertTrue(salarios.EsIgual(salarios_buscados))
-    
+
+
+if __name__ == "__main__":
+    unittest.main()
