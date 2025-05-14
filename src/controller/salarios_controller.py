@@ -28,7 +28,7 @@ class SalariosController:
     def insertar_datos_salarios(salarios: Salarios):
         cursor = SalariosController.obtener_cursor()
 
-        consulta = f"insert into salarios values ('{salarios.lista_salarios[0]}', '{salarios.lista_salarios[1]}', '{salarios.lista_salarios[2]}', '{salarios.lista_salarios[3]}', '{salarios.lista_salarios[4]}', '{salarios.lista_salarios[5]}', '{salarios.lista_salarios[6]}', '{salarios.lista_salarios[7]}', '{salarios.lista_salarios[8]}', '{salarios.lista_salarios[9]}')"
+        consulta = f"insert into salarios values ('{salarios.cedula}', '{salarios.lista_salarios[0]}', '{salarios.lista_salarios[1]}', '{salarios.lista_salarios[2]}', '{salarios.lista_salarios[3]}', '{salarios.lista_salarios[4]}', '{salarios.lista_salarios[5]}', '{salarios.lista_salarios[6]}', '{salarios.lista_salarios[7]}', '{salarios.lista_salarios[8]}', '{salarios.lista_salarios[9]}')"
         cursor.execute(consulta)
         cursor.connection.commit()
 
