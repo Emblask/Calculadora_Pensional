@@ -8,8 +8,9 @@ from model.usuario import Usuario
 from controller.usuarios_controller import UsuariosController
 
 class TestTarjeta(unittest.TestCase):
-
-    def setUpClass():
+    
+    @classmethod
+    def setUpClass(cls):
         UsuariosController.borrar_tabla()
         UsuariosController.crear_tabla()
 
