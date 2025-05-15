@@ -1,5 +1,5 @@
 class Salarios:
-    def __init__(self,cedula: int,  salario_1 : int, salario_2 : int, salario_3 : int, salario_4 : int, salario_5 : int, salario_6 : int, salario_7 : int, salario_8 : int, salario_9 : int, salario_10 : int):
+    def __init__(self, cedula: int,  salario_1 : int, salario_2 : int, salario_3 : int, salario_4 : int, salario_5 : int, salario_6 : int, salario_7 : int, salario_8 : int, salario_9 : int, salario_10 : int):
         self.cedula = cedula
         self.salario_1 = salario_1
         self.salario_2 = salario_2
