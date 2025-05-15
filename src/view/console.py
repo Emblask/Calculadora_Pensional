@@ -18,52 +18,59 @@ def asignar_genero(valor):
         
         case(3):
             raise ValueError("Selección inválida. Debe ser 1 (Masculino) o 2 (Femenino)")
+def iniciar():
 
 #Creacion de variables
-lista_salarios = []
-genero = ""
-edad = 0
-semanas = 0
-maximo_salarios = 11
+    lista_salarios = []
+    genero = ""
+    edad = 0
+    semanas = 0
+    maximo_salarios = 11
 
-#Creacion de la tabla Usuarios
-UsuariosController.crear_tabla()
+    #Creacion de la tabla Usuarios
+    UsuariosController.crear_tabla()
 
-# Comunicación con el usuario
-print("\n          Bienvenidos a la calculadora \n--------------------------------------------------\n\n")
+    # Comunicación con el usuario
+    print("\n          Bienvenidos a la calculadora \n--------------------------------------------------\n\n")
 
-eleccion_tipo_usuario = int(input("Eres un Usuario: \n 1. Nuevo \n 2. Registrado \n\nSeleccion: "))
+    eleccion_tipo_usuario = int(input("Eres un Usuario: \n 1. Nuevo \n 2. Registrado \n\nSeleccion: "))
 
-if eleccion_tipo_usuario == 1:
-    try:
-        sleccionar_genero = int(input("Por favor selecciona tu género: \n\n 1. Masculino \n 2. Femenino \n\nSelección: "))
-        genero = asignar_genero(sleccionar_genero)
-        nombre = input("Ingresa tu nombre: ")
-        apellido = input("Ingresa tu apellido: ")
-        cedula = input("Ingresa tu cedula: ")
-        edad = int(input("Ingresa tu edad actual: "))
-        semanas = int(input("Ingrese el total de semanas cotizadas: "))
-        numero_hijos = int(input("¿Cuántos hijos tienes?: "))
+    if eleccion_tipo_usuario == 1:
+        try:
+            sleccionar_genero = int(input("Por favor selecciona tu género: \n\n 1. Masculino \n 2. Femenino \n\nSelección: "))
+            genero = asignar_genero(sleccionar_genero)
+            nombre = input("Ingresa tu nombre: ")
+            apellido = input("Ingresa tu apellido: ")
+            cedula = input("Ingresa tu cedula: ")
+            edad = int(input("Ingresa tu edad actual: "))
+            semanas = int(input("Ingrese el total de semanas cotizadas: "))
+            numero_hijos = int(input("¿Cuántos hijos tienes?: "))
 
-        usuario = Usuario(cedula, nombre, apellido, edad, genero, numero_hijos)
 
-        UsuariosController.insertar(usuario)
+            print("\n   Por favor ingresa tu salario de los últimos 10 años\n")
 
-        print("\n   Por favor ingresa tu salario de los últimos 10 años\n")
+            lista_salarios = []
+            for i in range(1, maximo_salarios):
+                salario = int(input(f"Ingrese su salario {i}: "))
+                lista_salarios.append(salario)
+            
+            usuario = Usuario(cedula, nombre, apellido, edad, genero, numero_hijos)
+            UsuariosController.insertar(usuario)
 
-        lista_salarios = []
-        for i in range(1, maximo_salarios):
-            salario = int(input(f"Ingrese su salario {i}: "))
-            lista_salarios.append(salario)
+        except Exception as e:
+            print(f"\n❌ Error: {e}")
 
-    except Exception as e:
-        print(f"\n❌ Error: {e}")
+    elif eleccion_tipo_usuario == 2:
+        cedula = int(input("Ingresa tu cedula registrada: "))
+        usuario = UsuariosController.buscar_usuario(cedula)
+        print(f"Hola de nuevo {usuario.nombre}")
 
-else:
-    cedula = int(input("Ingresa tu cedula registrada: "))
-    usuario = UsuariosController.buscar_usuario(cedula)
-    print(f"Hola de nuevo {usuario.nombre}")
+    else:
+        ...
 
-# Comunicación con la lógica
-pension_total = pylogic.pension_total(lista_salarios, usuario.genero, usuario.edad, semanas, usuario.numero_hijos)
-print(f"{usuario.nombre} tu pension es: {pension_total}")
+    # Comunicación con la lógica
+    pension_total = pylogic.pension_total(lista_salarios, usuario.genero, usuario.edad, semanas, usuario.numero_hijos)
+    print(f"{usuario.nombre} tu pension es: {pension_total}")
+
+if __name__ == "__main__":
+    iniciar()
