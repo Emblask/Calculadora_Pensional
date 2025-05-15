@@ -53,7 +53,10 @@ class UsuariosController:
         if fila is None:
             return None
         
-        resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4], numero_hijos = fila[5])
+        resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4],
+                            numero_hijos = fila[5], salario_1 = int(fila[6]), salario_2 = int(fila[7]), salario_3 = int(fila[8]),
+                            salario_4 = int(fila[9]), salario_5 = int(fila[10]), salario_6 = int(fila[11]), salario_7 = int(fila[12]),
+                            salario_8 = int(fila[13]), salario_9 = int(fila[14]), salario_10 = int(fila[15]))
         return resultado
 
     def actualizar_datos():

@@ -3,7 +3,6 @@ import sys
 
 sys.path.append("src")
 
-from model.salarios import Salarios
 from model.usuario import Usuario
 from controller.salarios_controller import SalariosController
 from controller.usuarios_controller import UsuariosController
@@ -25,9 +24,7 @@ class TestSalarios(unittest.TestCase):
                             apellido = "Correa",
                             edad = 85,
                             genero = "Masculino",
-                            numero_hijos = 3)
-
-        salarios = Salarios(cedula = usuario.cedula,
+                            numero_hijos = 3,
                             salario_1 = 4000000,
                             salario_2 = 3100000,
                             salario_3 = 3200000,
@@ -40,7 +37,6 @@ class TestSalarios(unittest.TestCase):
                             salario_10 = 3900000)
         
         UsuariosController.insertar(usuario)
-        SalariosController.insertar_datos_salarios(salarios)
 
         salarios_buscados = SalariosController.buscar_salarios(usuario.cedula)
         self.assertTrue(salarios.EsIgual(salarios_buscados))
