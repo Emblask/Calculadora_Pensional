@@ -60,9 +60,6 @@ class UsuariosController:
                             salario_8 = int(fila[13]), salario_9 = int(fila[14]), salario_10 = int(fila[15]))
         return resultado
 
-    def actualizar_datos():
-        ...
-
     def obtener_cursos():
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)
         cursor = conection.cursor()
