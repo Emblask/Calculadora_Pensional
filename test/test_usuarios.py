@@ -7,7 +7,7 @@ from model.usuario import Usuario
 
 from controller.usuarios_controller import UsuariosController
 
-class TestTarjeta(unittest.TestCase):
+class TestUsuarios(unittest.TestCase):
     
     @classmethod
     def setUpClass(cls):
