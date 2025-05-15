@@ -75,8 +75,12 @@ def iniciar():
         iniciar()
 
     # Comunicación con la lógica
-    pension_total = pylogic.pension_total(lista_salarios, usuario.genero, usuario.edad, semanas, usuario.numero_hijos)
+    salarios = UsuariosController.obtener_salarios(usuario.cedula)
+    pension_total = pylogic.pension_total(salario, usuario.genero, usuario.edad, semanas, usuario.numero_hijos)
     print(f"{usuario.nombre} tu pension es: {pension_total}")
 
 if __name__ == "__main__":
     iniciar()
+
+
+#Corregir que hay que varios nombre de la lista de salarios
