@@ -98,6 +98,11 @@ class TestUsuarios(unittest.TestCase):
         UsuariosController.eliminar(usuario.cedula)
         self.assertIsNone(UsuariosController.buscar_usuario(usuario.cedula))
 
+    
+    def test_eliminar_error_1(self):
+        resutlado = UsuariosController.eliminar(147258369)
+        self.assertEqual(resutlado, 0)
+
 
 if __name__ == "__main__":
     unittest.main()
