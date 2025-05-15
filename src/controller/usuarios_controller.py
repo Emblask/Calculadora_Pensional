@@ -59,6 +59,20 @@ class UsuariosController:
                             salario_4 = int(fila[9]), salario_5 = int(fila[10]), salario_6 = int(fila[11]), salario_7 = int(fila[12]),
                             salario_8 = int(fila[13]), salario_9 = int(fila[14]), salario_10 = int(fila[15]))
         return resultado
+    
+    def obtener_salarios(cedula):
+        resultado = []
+        cursor = UsuariosController.obtener_cursos()
+
+        consulta = f"select * from usuarios where cedula = '{cedula}'"
+        cursor.exucete(consulta)
+        fila = cursor.fetchone()
+
+        if fila is None:
+            return None
+        
+        resultado.extend(int(fila[6]), int(fila[7]), int(fila[8]), int(fila[9]), int(fila[10]), int(fila[11]), int(fila[12]), int(fila[13]), int(fila[14]), int(fila[15]))
+        return resultado
 
     def obtener_cursos():
         conection = psycopg2.connect(database = SecretConfig.PGDATABASE, user = SecretConfig.PGUSER, password = SecretConfig.PGPASSWORD, host = SecretConfig.PGHOST, port = SecretConfig.PGPORT)
