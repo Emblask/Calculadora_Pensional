@@ -42,6 +42,7 @@ class UsuariosController:
         consulta = f"delete from usuarios where cedula = '{cedula}'"
         cursor.execute(consulta)
         cursor.connection.commit()
+        return cursor.rowcount
     
     def buscar_usuario(cedula) -> Usuario:
         cursor = UsuariosController.obtener_cursos()
