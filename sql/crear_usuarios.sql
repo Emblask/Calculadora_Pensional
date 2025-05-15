@@ -15,5 +15,4 @@ create table if not exists usuarios (
     salario_ano8 NUMERIC(12,2) not null,
     salario_ano9 NUMERIC(12,2) not null,
     salario_ano10 NUMERIC(12,2) not null
-
 )
