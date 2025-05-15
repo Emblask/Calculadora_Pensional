@@ -1,4 +1,5 @@
 import sys
+import time
 
 sys.path.append("src")
 sys.path.append(".")
@@ -32,12 +33,11 @@ def iniciar():
 
     # Comunicación con el usuario
     print("\n          Bienvenidos a la calculadora \n--------------------------------------------------\n\n")
-
     eleccion_tipo_usuario = int(input("Eres un Usuario: \n 1. Nuevo \n 2. Registrado \n\nSeleccion: "))
 
     if eleccion_tipo_usuario == 1:
         try:
-            sleccionar_genero = int(input("Por favor selecciona tu género: \n\n 1. Masculino \n 2. Femenino \n\nSelección: "))
+            sleccionar_genero = int(input("\nPor favor selecciona tu género: \n\n 1. Masculino \n 2. Femenino \n\nSelección: "))
             genero = asignar_genero(sleccionar_genero)
             nombre = input("Ingresa tu nombre: ")
             apellido = input("Ingresa tu apellido: ")
@@ -54,7 +54,10 @@ def iniciar():
                 salario = int(input(f"Ingrese su salario {i}: "))
                 lista_salarios.append(salario)
             
-            usuario = Usuario(cedula, nombre, apellido, edad, genero, numero_hijos)
+            usuario = Usuario(cedula, nombre, apellido, edad, genero, numero_hijos,
+                              lista_salarios[0], lista_salarios[1], lista_salarios[2],
+                              lista_salarios[3], lista_salarios[4], lista_salarios[5],
+                              lista_salarios[6], lista_salarios[7], lista_salarios[8], lista_salarios[9])
             UsuariosController.insertar(usuario)
 
         except Exception as e:
@@ -64,9 +67,12 @@ def iniciar():
         cedula = int(input("Ingresa tu cedula registrada: "))
         usuario = UsuariosController.buscar_usuario(cedula)
         print(f"Hola de nuevo {usuario.nombre}")
+        time.sleep(1)
 
     else:
-        ...
+        print("Ingresaste una opcion invalida")
+        time.sleep(1)
+        iniciar()
 
     # Comunicación con la lógica
     pension_total = pylogic.pension_total(lista_salarios, usuario.genero, usuario.edad, semanas, usuario.numero_hijos)
