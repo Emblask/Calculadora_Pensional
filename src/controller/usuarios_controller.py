@@ -28,7 +28,11 @@ class UsuariosController:
     def insertar(usuario: Usuario):
         cursor = UsuariosController.obtener_cursos()
 
-        consulta = f"insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}', '{usuario.genero}', '{usuario.numero_hijos}')"
+        consulta = f"""insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}',
+                                                    '{usuario.genero}', '{usuario.numero_hijos}', '{usuario.salario_1}',
+                                                    '{usuario.salario_2}', '{usuario.salario_3}', '{usuario.salario_4}',
+                                                    '{usuario.salario_5}', '{usuario.salario_6}', '{usuario.salario_7}',
+                                                    '{usuario.salario_8}', '{usuario.salario_9}', '{usuario.salario_10}')"""
         cursor.execute(consulta)
         cursor.connection.commit()
     
