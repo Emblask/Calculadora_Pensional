@@ -29,10 +29,10 @@ class UsuariosController:
         cursor = UsuariosController.obtener_cursos()
 
         consulta = f"""insert into usuarios values ('{usuario.cedula}', '{usuario.nombre}', '{usuario.apellido}', '{usuario.edad}',
-                                                    '{usuario.genero}', '{usuario.numero_hijos}', '{usuario.salario_1}',
-                                                    '{usuario.salario_2}', '{usuario.salario_3}', '{usuario.salario_4}',
-                                                    '{usuario.salario_5}', '{usuario.salario_6}', '{usuario.salario_7}',
-                                                    '{usuario.salario_8}', '{usuario.salario_9}', '{usuario.salario_10}')"""
+                                                    '{usuario.genero}', '{usuario.numero_hijos}', '{usuario.semanas_cotizadas}',
+                                                    '{usuario.salario_1}', '{usuario.salario_2}', '{usuario.salario_3}',
+                                                    '{usuario.salario_4}', '{usuario.salario_5}', '{usuario.salario_6}',
+                                                    '{usuario.salario_7}', '{usuario.salario_8}', '{usuario.salario_9}', '{usuario.salario_10}')"""
         cursor.execute(consulta)
         cursor.connection.commit()
     
@@ -55,9 +55,9 @@ class UsuariosController:
             return None
         
         resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4],
-                            numero_hijos = fila[5], salario_1 = int(fila[6]), salario_2 = int(fila[7]), salario_3 = int(fila[8]),
-                            salario_4 = int(fila[9]), salario_5 = int(fila[10]), salario_6 = int(fila[11]), salario_7 = int(fila[12]),
-                            salario_8 = int(fila[13]), salario_9 = int(fila[14]), salario_10 = int(fila[15]))
+                            numero_hijos = int(fila[5]), semanas_cotizadas = int(fila[6]),salario_1 = int(fila[7]), salario_2 = int(fila[8]), salario_3 = int(fila[9]),
+                            salario_4 = int(fila[10]), salario_5 = int(fila[11]), salario_6 = int(fila[12]), salario_7 = int(fila[13]),
+                            salario_8 = int(fila[14]), salario_9 = int(fila[15]), salario_10 = int(fila[16]))
         return resultado
     
     def obtener_salarios(cedula):
@@ -71,7 +71,8 @@ class UsuariosController:
         if fila is None:
             return None
         
-        resultado.extend(int(fila[6]), int(fila[7]), int(fila[8]), int(fila[9]), int(fila[10]), int(fila[11]), int(fila[12]), int(fila[13]), int(fila[14]), int(fila[15]))
+        resultado.extend(   int(fila[7]), int(fila[8]), int(fila[9]), int(fila[10]), int(fila[11]),
+                            int(fila[12]), int(fila[13]), int(fila[14]), int(fila[15]), int(fila[16]))
         return resultado
 
     def obtener_cursos():

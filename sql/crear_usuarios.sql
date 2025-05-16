@@ -5,6 +5,7 @@ create table if not exists usuarios (
     edad varchar(15) not null,
     genero varchar(10) not null,
     numero_hijos Integer not null,
+    semanas_cotizadas Integer not null,
     salario_ano_1 NUMERIC(12,2) not null,
     salario_ano_2 NUMERIC(12,2) not null,
     salario_ano_3 NUMERIC(12,2) not null,

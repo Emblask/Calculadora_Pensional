@@ -1,5 +1,5 @@
 class Usuario:
-    def __init__(   self, cedula: int, nombre: str, apellido: str, edad: int, genero: str, numero_hijos: int,
+    def __init__(   self, cedula: int, nombre: str, apellido: str, edad: int, genero: str, numero_hijos: int, semanas_cotizadas: int,
                     salario_1 : int, salario_2 : int, salario_3 : int, salario_4 : int, salario_5 : int,
                     salario_6 : int, salario_7 : int, salario_8 : int, salario_9 : int, salario_10 : int):
         
@@ -9,6 +9,7 @@ class Usuario:
         self.edad = edad
         self.genero = genero
         self.numero_hijos = numero_hijos
+        self.semanas_cotizadas = semanas_cotizadas
         self.salario_1 = salario_1
         self.salario_2 = salario_2
         self.salario_3 = salario_3
@@ -33,6 +34,8 @@ class Usuario:
         if self.genero != otro.genero:
             return False
         if self.numero_hijos != otro.numero_hijos:
+            return False
+        if self.semanas_cotizadas != otro.semanas_cotizadas:
             return False
         if self.salario_1 != otro.salario_1:
             return False
