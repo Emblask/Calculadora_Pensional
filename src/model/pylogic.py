@@ -17,7 +17,8 @@ class InvalidWeeksError(Exception):
     
 
 class InvalidDatesError(Exception):
-    """Las semanas cotizadas y la edad no son suficiente. Tienes menos semanas de las requeridas. Por favor completa los requisitos"""
+    def __init__(self, *args):
+        super().__init__("""Las semanas cotizadas y la edad no son suficiente. Tienes menos semanas de las requeridas. Por favor completa los requisitos""")
 
 def calculo_IBL(lista: list[int], idx = 0):
     if idx == len(lista):
@@ -30,8 +31,8 @@ def calculo_IBL(lista: list[int], idx = 0):
     return lista[idx] + calculo_IBL(lista, idx + 1)
 
 
-def pension_total(lista: list[int], genero: str, edad: int, semanas: int, numero_hijos: int):
-    if not lista:
+def pension_total(lista_salarios: list[int], genero: str, edad: int, semanas: int, numero_hijos: int):
+    if not lista_salarios:
         return 0
     
     if numero_hijos > 3:
@@ -49,7 +50,7 @@ def pension_total(lista: list[int], genero: str, edad: int, semanas: int, numero
         raise InvalidWeeksError(cuenta_semanas, semanas)
     
 
-    pension = round(calculo_IBL(lista) / len(lista) * Porcentaje_pension, 2)
+    pension = round(calculo_IBL(lista_salarios) / len(lista_salarios) * Porcentaje_pension, 2)
 
     if (genero == "Masculino" and edad >= 62 and semanas >= 1300):
         if pension < salario_minimo:
