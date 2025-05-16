@@ -46,7 +46,6 @@ def iniciar():
             semanas = int(input("Ingrese el total de semanas cotizadas: "))
             numero_hijos = int(input("¿Cuántos hijos tienes?: "))
 
-
             print("\n   Por favor ingresa tu salario de los últimos 10 años\n")
 
             lista_salarios = []
@@ -66,7 +65,7 @@ def iniciar():
     elif eleccion_tipo_usuario == 2:
         cedula = int(input("Ingresa tu cedula registrada: "))
         usuario = UsuariosController.buscar_usuario(cedula)
-        print(f"Hola de nuevo {usuario.nombre}")
+        print(f"\n  Hola de nuevo {usuario.nombre}")
         time.sleep(1)
 
     else:
@@ -77,7 +76,7 @@ def iniciar():
     # Comunicación con la lógica
     salario_obtenido = UsuariosController.obtener_salarios(usuario.cedula)
     pension_total = pylogic.pension_total(salario_obtenido, usuario.genero, usuario.edad, usuario.semanas_cotizadas, usuario.numero_hijos)
-    print(f"{usuario.nombre} tu pension es: {pension_total}")
+    print(f"\n  {usuario.nombre} tu pension es: {pension_total}")
 
 if __name__ == "__main__":
     iniciar()
