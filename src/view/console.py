@@ -59,8 +59,8 @@ def iniciar():
                                 lista_salarios[6], lista_salarios[7], lista_salarios[8], lista_salarios[9])
             UsuariosController.insertar(usuario)
 
-        except Exception as e:
-            print(f"\n❌ Error: {e}")
+        except Exception as error:
+            print(f"\n❌ Error: {error} \n")
 
     elif eleccion_tipo_usuario == 2:
         cedula = int(input("Ingresa tu cedula registrada: "))
@@ -73,11 +73,14 @@ def iniciar():
         time.sleep(1)
         iniciar()
 
-    # Comunicación con la lógica
-    salario_obtenido = UsuariosController.obtener_salarios(usuario.cedula)
-    pension_total = pylogic.pension_total(salario_obtenido, usuario.genero, usuario.edad, usuario.semanas_cotizadas, usuario.numero_hijos)
-    print(f"\n  {usuario.nombre} tu pension es: {pension_total}")
+    try:
+        # Comunicación con la lógica
+        salario_obtenido = UsuariosController.obtener_salarios(usuario.cedula)
+        pension_total = pylogic.pension_total(salario_obtenido, usuario.genero, int(usuario.edad), int(usuario.semanas_cotizadas), int(usuario.numero_hijos))
+        print(f"\n  {usuario.nombre} tu pension es: {pension_total}")
 
+    except Exception as error:
+        print(f"\n❌: {error} \n")
 if __name__ == "__main__":
     iniciar()
 
