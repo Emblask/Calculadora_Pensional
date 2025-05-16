@@ -54,7 +54,7 @@ def iniciar():
                 salario = int(input(f"Ingrese su salario {i}: "))
                 lista_salarios.append(salario)
             
-            usuario = Usuario(  cedula, nombre, apellido, edad, genero, numero_hijos,
+            usuario = Usuario(  cedula, nombre, apellido, edad, genero, numero_hijos, semanas,
                                 lista_salarios[0], lista_salarios[1], lista_salarios[2],
                                 lista_salarios[3], lista_salarios[4], lista_salarios[5],
                                 lista_salarios[6], lista_salarios[7], lista_salarios[8], lista_salarios[9])
