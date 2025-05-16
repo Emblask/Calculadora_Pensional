@@ -55,7 +55,7 @@ class UsuariosController:
             return None
         
         resultado = Usuario(cedula = int(fila[0]), nombre = fila[1], apellido = fila[2], edad = int(fila[3]), genero = fila[4],
-                            numero_hijos = int(fila[5]), semanas_cotizadas = int(fila[6]),salario_1 = int(fila[7]), salario_2 = int(fila[8]), salario_3 = int(fila[9]),
+                            numero_hijos = int(fila[5]), semanas_cotizadas = int(fila[6]), salario_1 = int(fila[7]), salario_2 = int(fila[8]), salario_3 = int(fila[9]),
                             salario_4 = int(fila[10]), salario_5 = int(fila[11]), salario_6 = int(fila[12]), salario_7 = int(fila[13]),
                             salario_8 = int(fila[14]), salario_9 = int(fila[15]), salario_10 = int(fila[16]))
         return resultado
@@ -65,14 +65,14 @@ class UsuariosController:
         cursor = UsuariosController.obtener_cursos()
 
         consulta = f"select * from usuarios where cedula = '{cedula}'"
-        cursor.exucete(consulta)
+        cursor.execute(consulta)
         fila = cursor.fetchone()
 
         if fila is None:
             return None
         
-        resultado.extend(   int(fila[7]), int(fila[8]), int(fila[9]), int(fila[10]), int(fila[11]),
-                            int(fila[12]), int(fila[13]), int(fila[14]), int(fila[15]), int(fila[16]))
+        resultado.extend(   [int(fila[7]), int(fila[8]), int(fila[9]), int(fila[10]), int(fila[11]),
+                            int(fila[12]), int(fila[13]), int(fila[14]), int(fila[15]), int(fila[16])])
         return resultado
 
     def obtener_cursos():
