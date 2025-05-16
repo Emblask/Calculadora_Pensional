@@ -83,6 +83,3 @@ def iniciar():
         print(f"\n❌: {error} \n")
 if __name__ == "__main__":
     iniciar()
-
-
-#Corregir que hay que varios nombre de la lista de salarios
