@@ -19,8 +19,8 @@ def asignar_genero(valor):
         
         case(3):
             raise ValueError("Selección inválida. Debe ser 1 (Masculino) o 2 (Femenino)")
-def iniciar():
 
+def iniciar():
 #Creacion de variables
     lista_salarios = []
     genero = ""
