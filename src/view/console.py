@@ -76,7 +76,7 @@ def iniciar():
 
     # Comunicación con la lógica
     salario_obtenido = UsuariosController.obtener_salarios(usuario.cedula)
-    pension_total = pylogic.pension_total(salario_obtenido, usuario.genero, usuario.edad, usuario.semanas, usuario.numero_hijos)
+    pension_total = pylogic.pension_total(salario_obtenido, usuario.genero, usuario.edad, usuario.semanas_cotizadas, usuario.numero_hijos)
     print(f"{usuario.nombre} tu pension es: {pension_total}")
 
 if __name__ == "__main__":
