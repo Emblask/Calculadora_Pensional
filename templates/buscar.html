@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Buscar Usuario</title>
+</head>
+<body>
+    <h1>Buscar Usuario por Cédula</h1>
+    <form method="post">
+        <label for="cedula">Cédula:</label>
+        <input type="text" id="cedula" name="cedula" required>
+        <button type="submit">Buscar</button>
+    </form>
+
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <ul>
+          {% for message in messages %}
+            <li>{{ message }}</li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+
+    {% if persona %}
+        <h2>Datos encontrados:</h2>
+        <p><strong>Cédula:</strong> {{ persona[0] }}</p>
+        <p><strong>Nombre:</strong> {{ persona[1] }} {{ persona[2] }}</p>
+        <p><strong>Edad:</strong> {{ persona[3] }}</p>
+        <p><strong>Género:</strong> {{ persona[4] }}</p>
+        <p><strong>Número de hijos:</strong> {{ persona[5] }}</p>
+        <p><strong>Semanas cotizadas:</strong> {{ persona[6] }}</p>
+        <p><strong>Salarios últimos 10 años:</strong></p>
+        <ul>
+            {% for i in range(7, 17) %}
+                <li>{{ persona[i] }}</li>
+            {% endfor %}
+        </ul>
+        <h3>Pensión calculada: ${{ pension }}</h3>
+    {% endif %}
+</body>
+</html>
+

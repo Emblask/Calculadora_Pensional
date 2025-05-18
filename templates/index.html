@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Inicio - Calculadora Pensional</title>
+</head>
+<body>
+    <h1>Bienvenido a la Calculadora Pensional</h1>
+    {% with messages = get_flashed_messages() %}
+        {% if messages %}
+            <ul style="color: green;">
+                {% for message in messages %}
+                    <li>{{ message }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    {% endwith %}
+
+    <ul>
+        <li><a href="{{ url_for('crear') }}">Crear tablas</a></li>
+        <li><a href="{{ url_for('insertar') }}">Insertar persona</a></li>
+        <li><a href="{{ url_for('buscar') }}">Buscar persona</a></li>
+        <li><a href="{{ url_for('modificar') }}">Modificar persona</a></li>
+    </ul>
+</body>
+</html>
