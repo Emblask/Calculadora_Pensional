@@ -132,6 +132,8 @@ InvalidDatesError  -> Combinación edad/semanas no válida
 - David Hernández Mejía 
 - Miguel Ángel Guarnizo 
 - Tomás Mercado
+- Samuel Uribe
+- Miguel Angel Salas
 
 ## Crear la base de datos
 ⚙️ Requisitos
@@ -165,6 +167,25 @@ Recuerde no subir este archivo al repositorio, ya que este seran los datos de ac
 Antes de ejecutar la aplicaición por primera vez, debe correr las pruebas unitarias, para que se creen las tablas en la base de datos
 
 Despues de tener esto en cuenta ejecute el sistema y haga las pruebas correspondientes.
+
+## Ejecución de la aplicación web 🌐
+
+1. Desde la raíz del proyecto, ejecuta el siguiente comando:
+
+```bash
+python app.py
+```
+
+2. Verás en consola un mensaje de confirmación similar al siguiente:
+```bash
+ * Running on http://127.0.0.1:5000/ (Press CTRL+C to quit)
+ * Restarting with stat
+ * Debugger is active!
+ * Debugger PIN: XXX-XXX-XXX
+```
+
+3. accedes por medio del http arriba mencionado
+
 
 
 

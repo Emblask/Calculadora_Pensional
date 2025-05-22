@@ -3,8 +3,46 @@
 <head>
     <meta charset="UTF-8">
     <title>Modificar Persona</title>
+    <style>
+        .flash-messages {
+            margin: 10px 0;
+            padding: 0;
+        }
+        .flash-message {
+            padding: 10px;
+            margin: 5px 0;
+            border-radius: 4px;
+            list-style: none;
+        }
+        .error {
+            background-color: #ffebee;
+            color: #c62828;
+            border-left: 4px solid #c62828;
+        }
+        .success {
+            background-color: #e8f5e9;
+            color: #2e7d32;
+            border-left: 4px solid #2e7d32;
+        }
+        .warning {
+            background-color: #fff8e1;
+            color: #f57f17;
+            border-left: 4px solid #f57f17;
+        }
+    </style>
 </head>
 <body>
+    <!-- Mostrar mensajes flash aquí -->
+    <ul class="flash-messages">
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                {% for category, message in messages %}
+                    <li class="flash-message {{ category }}">{{ message }}</li>
+                {% endfor %}
+            {% endif %}
+        {% endwith %}
+    </ul>
+
     <h2>Modificar Datos de Persona</h2>
     <form method="post">
         <label>Cédula:</label><input type="text" name="cedula" required><br>

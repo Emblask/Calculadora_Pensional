@@ -5,7 +5,7 @@ sys.path.append("src")
 sys.path.append(".")
 
 import SecretConfig
-from model.usuario import Usuario
+from src.model.usuario import Usuario
 
 class UsuariosController:
     def crear_tabla():
@@ -59,6 +59,36 @@ class UsuariosController:
                             salario_4 = int(fila[10]), salario_5 = int(fila[11]), salario_6 = int(fila[12]), salario_7 = int(fila[13]),
                             salario_8 = int(fila[14]), salario_9 = int(fila[15]), salario_10 = int(fila[16]))
         return resultado
+    
+
+    @staticmethod
+    def actualizar(usuario: Usuario):
+        cursor = UsuariosController.obtener_cursos()
+        
+        consulta = """UPDATE usuarios SET 
+                    nombre = %s, 
+                    apellido = %s, 
+                    edad = %s, 
+                    genero = %s, 
+                    numero_hijos = %s, 
+                    semanas_cotizadas = %s,
+                    salario_1 = %s, salario_2 = %s, salario_3 = %s,
+                    salario_4 = %s, salario_5 = %s, salario_6 = %s,
+                    salario_7 = %s, salario_8 = %s, salario_9 = %s, salario_10 = %s
+                    WHERE cedula = %s"""
+        
+        parametros = (
+            usuario.nombre, usuario.apellido, usuario.edad, usuario.genero,
+            usuario.numero_hijos, usuario.semanas_cotizadas,
+            usuario.salario_1, usuario.salario_2, usuario.salario_3,
+            usuario.salario_4, usuario.salario_5, usuario.salario_6,
+            usuario.salario_7, usuario.salario_8, usuario.salario_9, usuario.salario_10,
+            usuario.cedula
+        )
+        
+        cursor.execute(consulta, parametros)
+        cursor.connection.commit()
+        return cursor.rowcount
     
     def obtener_salarios(cedula):
         resultado = []
