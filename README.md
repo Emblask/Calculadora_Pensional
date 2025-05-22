@@ -21,13 +21,31 @@ Calculadora_Pensional/
 ├── README.md
 ├── src/
 │   ├── controller/
+│   │	└── usuarios_controller.py
 │   ├── model/
-│   │   └── pylogic.py      # Lógica de cálculo principal
-│   └── view/
-│       ├── console.py       # Interfaz de línea de comandos
-│       └── interfaz.py      # Interfaz gráfica (Kivy)
-└── test/
-    └── test_1.py           # Pruebas unitarias
+│   │   ├── pylogic.py      # Lógica de cálculo principal
+│   │	└── usuario.py
+│   ├── view/
+│   │   ├── console.py       # Interfaz de línea de comandos
+│   │   └── main.py          # Interfaz gráfica (Kivy)
+│   └── routes/
+│       ├── buscar.py
+│       ├── insertar.py
+│       └── modificar.py
+├──test/
+│     ├── test_1.py          # Pruebas unitarias
+│     └── test_usuarios.py   # Pruebas unitarias
+├──templates/
+│     ├── buscar.html
+│     ├── index.html
+│     ├── insertar.html
+│     └── modificar.html
+└── sql/
+      ├── borrar_usuario.sql
+      ├── buscar_usuario.sql
+      ├── crear_usuarios.sql
+      ├── insertar_usuario.sql
+      └── modificar_usuario.sql
 ```
 ## Requisitos previos ⚙️
 
@@ -185,6 +203,8 @@ python app.py
 ```
 
 3. accedes por medio del http arriba mencionado
+
+4. antes que nada  dar click en "crear tablas" para crear las respectivas tablas en la base de datos
 
 
 
