@@ -1,6 +1,6 @@
 from flask import Flask, render_template, redirect, url_for, flash
 from src.controller.usuarios_controller import UsuariosController
-from src.routes import register_routes
+from src.view.web import register_routes
 import os
 
 app = Flask(__name__)
