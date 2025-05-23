@@ -83,7 +83,7 @@ class UsuariosController:
             usuario.salario_1, usuario.salario_2, usuario.salario_3,
             usuario.salario_4, usuario.salario_5, usuario.salario_6,
             usuario.salario_7, usuario.salario_8, usuario.salario_9, usuario.salario_10,
-            usuario.cedula
+            str(usuario.cedula)
         )
         
         cursor.execute(consulta, parametros)
